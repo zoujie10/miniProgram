@@ -1,0 +1,13 @@
+<view class="container">
+  <image class="avatar" src="/images/avatar/WeChat@3x.png"></image>
+  <text>Mine Info</text>
+  <view class="mineInfo">
+    <text class="motto">Set</text>
+  </view>
+  <view class="mineInfo">
+    <text class="mineInfo">Aoout</text>
+  </view>
+  <view class="mineInfo">
+    <text class="mineInfo">passWord</text>
+  </view>
+</view>
