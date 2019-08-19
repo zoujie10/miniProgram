@@ -1,11 +1,27 @@
 //app.js
+
 App({
+  onShow:function(){
+    console.log("entey front")
+  },
+  onHide:function(){
+    console.log("entey background")
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    // var storageData = wx.getStorageSync('postList');
+    // // 判断缓存是否存在
+    // if(!storageData){
+    //   console.log("判断缓存是否存在")
+      // var dataObj = require("data/data.js");
+    //   wx.clearStorageSync();
+      // wx.setStorageSync('postList',dataObj.postList)
+    // } 
+    
     // 登录
     wx.login({
       success: res => {

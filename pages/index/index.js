@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
+    motto: '进入首页',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -16,7 +16,7 @@ Page({
     })
   },
   onTapJump:function(event){
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../post/post',
       success:function(){
         console.log("jump success")

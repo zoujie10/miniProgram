@@ -2,10 +2,11 @@
   "pages": [
     "pages/index/index",
     "pages/post/post",
-    "pages/post/post-item/post-item-tpl",
     "pages/logs/logs",
     "pages/mine/mine",
-    "data/data"
+    "data/data",
+    "db/DBPost",
+    "pages/post/post-detail/post-detail"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -18,15 +19,22 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "iconPath": "images/avatar/short_letter@3x.png",
+        "selectedIconPath": "images/avatar/yanzhengma@3x.png"
       },
       {
         "pagePath": "pages/logs/logs",
-        "text": "分类"
+        "text": "购物车",
+        "iconPath": "images/avatar/short_letter@3x.png",
+        "selectedIconPath": "images/avatar/yanzhengma@3x.png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "images/avatar/short_letter@3x.png",
+        "selectedIconPath": "images/avatar/yanzhengma@3x.png",
+        "badge": "99"
       }
     ]
   },

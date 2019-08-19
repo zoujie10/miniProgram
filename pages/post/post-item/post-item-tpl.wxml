@@ -17,12 +17,17 @@
     </view>
   </view>
   <!-- </block> -->
-<!-- </template> --> --> -->
+<!-- </template> --> 
 
 
 <template name="picureItem">
   <view class="templeView">
-    <text class="home-title ">{{idx}}:{{message}}</text>
-    <image class="home-middle-pic " src="/images/post/postPicture@3x.png " mode="aspectFit "></image>
+    <text class="home-title ">图片:{{message}}</text>
+    <image class="home-middle-pic " src="/images/post/postPicture@3x.png " mode="aspectFit"></image>
   </view>
 </template>
+
+<view class="templeView">
+    <text class="home-title ">{{item.message}}</text>
+    <image class="home-middle-pic " src="/images/post/post1Picture@3x.png " mode="aspectFit"></image>
+</view>

@@ -1,4 +1,4 @@
-// pages/post/post-item/post-item-tpl.js
+// pages/post/post-detail/post-detail.js
 Page({
 
   /**
@@ -12,7 +12,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var postId = options.postId;
+    console.log("detail--view",postId);
   },
 
   /**
