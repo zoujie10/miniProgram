@@ -1,0 +1,12 @@
+.templeView{
+   display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  background-color:blanchedalmond
+}
+
+.home-title{
+  width: 100rpx;
+  height: 30rpx;
+  background-color:blanchedalmond
+}

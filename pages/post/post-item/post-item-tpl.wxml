@@ -1,0 +1,28 @@
+<!-- News list -->
+<!-- <template name="postItemTpl">
+  <!-- <block wx:for="{{postList}}" wx:for-index="idx" wx:for-item="item"> -->
+  <!-- <view class=" textAndPicture-container ">
+    <view class="item.post-author-date ">
+      <image src="{{item.avatar}} "></image>
+      <text>{{item.object.date}}</text>
+    </view>
+    <text class="home-title ">{{item.title}}</text>
+    <image class="home-middle-pic " src="{{item.postImg}} " mode="aspectFit "></image>
+    <text class="content-text ">{{item.content}}</text>
+    <view class="post-like ">
+      <image src="/images/avatar/short_letter@3x.png "></image>
+      <text>{{item.readingNum.array[1]}}</text>
+      <image src="/images/avatar/yanzhengma@3x.png "></image>
+      <text>{{item.commentNum}}</text>
+    </view>
+  </view>
+  <!-- </block> -->
+<!-- </template> --> --> -->
+
+
+<template name="picureItem">
+  <view class="templeView">
+    <text class="home-title ">{{idx}}:{{message}}</text>
+    <image class="home-middle-pic " src="/images/post/postPicture@3x.png " mode="aspectFit "></image>
+  </view>
+</template>

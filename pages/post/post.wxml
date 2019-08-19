@@ -1,5 +1,6 @@
 <!--pages/post/post.wxml-->
 <!-- <text>pages/post/post.wxml</text> -->
+<import src="post-item/post-item-tpl.wxml"/>
 <!-- 轮播图 -->
 <view>
   <swiper indicator-dots="true" autoplay="true" interval="5000">
@@ -30,24 +31,24 @@
   </view>
 </view>
 
-<!-- 文章样式 list-->
-<view class="textAndPicture-container">
+<!-- 文章样式 写死 list-->
+<!-- <view class="textAndPicture-container">
   <view class="post-author-date">
-    <image src="/images/avatar/WeChat@3x.png"></image>
-    <text>August 08 2019</text>
+    <image src="{{postData.avatar}}"></image>
+    <text>{{postData.object.date}}</text>
   </view>
-  <text class="home-title">旺仔旺铺中元节special活动</text>
-  <image class="home-middle-pic" src="/images/post/bannarPicture.png" mode="aspectFit"></image>
-  <text class="content-text">因商品享受”7天无理由退换“服务，则推广费将在用户收货7天后且未发生退货的情况下发放至您的CEO账户。收入到账后，您可以马上提现，每日限提现5次，上限2,000元。提现过程中产生的费用皆由微信或支付宝平台收取，如有疑问，可联系客服咨询。</text>
+  <text class="home-title">{{postData.title}}</text>
+  <image class="home-middle-pic" src="{{postData.postImg}}" mode="aspectFit"></image>
+  <text class="content-text">{{postData.content}}</text>
   <view class="post-like">
     <image src="/images/avatar/short_letter@3x.png"></image>
-    <text>88</text>
+    <text>{{postData.readingNum.array[1]}}</text>
     <image src="/images/avatar/yanzhengma@3x.png"></image>
-    <text>1234</text>
+    <text>{{postData.commentNum}}</text>
   </view>
-</view>
+</view> -->
 
-<view class="textAndPicture-container">
+<!-- <view class="textAndPicture-container">
   <view class="post-author-date">
     <image src="/images/avatar/WeChat@3x.png"></image>
     <text>August 08 2019</text>
@@ -61,9 +62,8 @@
     <image src="/images/avatar/yanzhengma@3x.png"></image>
     <text>1234</text>
   </view>
-</view>
-
-
+</view> -->
+<!-- 
 <view class="textAndPicture-container">
   <view class="post-author-date">
     <image src="/images/avatar/WeChat@3x.png"></image>
@@ -78,4 +78,31 @@
     <image src="/images/avatar/yanzhengma@3x.png"></image>
     <text>1234</text>
   </view>
-</view>
+</view> -->
+
+<!-- 列表渲染 列表-->
+  <block wx:for="{{postList}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
+    <view class=" textAndPicture-container ">
+      <view class="post-author-date ">
+      <image src="{{item.avatar}} "></image>
+      <text>{{item.object.date}}</text>
+      </view>
+      <text class="home-title ">{{item.title}}</text>
+      <image class="home-middle-pic " src="{{item.postImg}} " mode="aspectFit "></image>
+      <text class="content-text ">{{item.content}}</text>
+      <view class="post-like ">
+        <image src="/images/avatar/short_letter@3x.png "></image>
+        <text>{{item.readingNum.array[1]}}</text>
+        <image src="/images/avatar/yanzhengma@3x.png "></image>
+        <text>{{item.commentNum}}</text>
+      </view>
+     </view>
+  </block>
+
+ 
+  <block wx:for="{{templateData}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
+<template is="picureItem" date="{{...item}}"/>
+<!-- <template is="picureItem" date="{{templateData}}"/>
+<template is="picureItem" date="{{templateData}}"/> -->
+  </block>
+  

@@ -1,13 +1,15 @@
 {
   "pages": [
-    "pages/post/post",
     "pages/index/index",
+    "pages/post/post",
+    "pages/post/post-item/post-item-tpl",
     "pages/logs/logs",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "data/data"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#FC556C",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": false

@@ -15,6 +15,20 @@ Page({
       url: '../logs/logs'
     })
   },
+  onTapJump:function(event){
+    wx.redirectTo({
+      url: '../post/post',
+      success:function(){
+        console.log("jump success")
+      },
+      fail:function(){
+        console.log("jump fail");
+      },
+      complete:function(){
+        console.log("jump complete");
+      }
+    });
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
