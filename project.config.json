@@ -43,10 +43,10 @@
 			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "pages/post/post-detail/post-detail",
 					"pathName": "pages/post/post-detail/post-detail",
-					"query": "postId=2",
+					"query": "postId=0",
 					"scene": null
 				}
 			]

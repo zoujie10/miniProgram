@@ -14,8 +14,8 @@ var postList = [{
     commentNum: 7,
     author:"张宸瑜",
     dateTime:"24小时前",
-    detail:"萨达是大大大是大大飒飒大大手拉手索拉鲁斯劳斯莱斯劳斯莱斯老李说劳斯莱斯",
-    postId:"19",
+    detail:"旺仔旺铺首页旺仔旺铺首页旺仔旺铺首页旺仔旺铺首页旺仔旺铺首页旺仔旺铺首页旺仔旺铺首页旺仔旺铺首页旺仔旺铺首页旺仔旺铺首页旺仔旺铺首页旺仔旺铺首页旺仔旺铺首页旺仔旺铺首页萨达是大大大是大大飒飒大大手拉手索拉鲁斯劳斯莱斯劳斯莱斯老李说劳斯莱斯",
+    postId:"0",
     music:{
       url:"http://ws.stream.qqmusic.qq.com/C100001Dc80Z3qPj2Z.m4a?fromtag=38",
       title:"张震岳 再见",
@@ -33,6 +33,9 @@ var postList = [{
     title: "缓存数据---旺仔旺铺新品",
     postImg: "/images/post/postPicture@3x.png",
     avatar: "/images/avatar/WeChat@3x.png",
+    detail: "旺仔旺铺新品旺仔旺铺新品旺仔旺铺新品旺仔旺铺新品旺仔旺铺新品旺仔旺铺新品旺仔旺铺新品旺仔旺铺新品旺仔旺铺新品旺仔旺铺新品旺仔旺铺新品旺仔旺铺新品萨达是大大大是大大飒飒大大手拉手索拉鲁斯劳斯莱斯劳斯莱斯老李说劳斯莱斯",
+    postId: "1",
+    author: "李昭仪",
     content: "因商品享受”7天无理由退换“服务，则推广费将在用户收货7天后且未发生退货的情况下发放至您的CEO账户。收入到账后，您可以马上提现，每日限提现5次，上限2,000元。提现过程中产生的费用皆由微信或支付宝平台收取，如有疑问，可联系客服咨询。",
     readingNum: {
       array: [10, 10, 106]
@@ -48,6 +51,9 @@ var postList = [{
         postImg: "/images/post/post1Picture@3x.png",
         avatar: "/images/post/avatar_women.png",
         content: "因商品享受”7天无理由退换“服务，则推广费将在用户收货7天后且未发生退货的情况下发放至您的CEO账户。收入到账后，您可以马上提现，每日限提现5次，上限2,000元。提现过程中产生的费用皆由微信或支付宝平台收取，如有疑问，可联系客服咨询。",
+      detail: "萨达是大大大是大大飒飒大大手拉手索拉鲁斯劳斯莱斯劳斯莱斯老李说劳斯莱斯",
+      postId: "2",
+      author: "张宸瑜",
         readingNum: {
           array: [8, 17, 106]
         },
@@ -59,6 +65,9 @@ var postList = [{
       date: "August 12 2019"
     },
     title: "缓存数据--新人优惠券",
+    detail: "新人优惠券新人优惠券新人优惠券新人优惠券新人优惠券新人优惠券新人优惠券新人优惠券新人优惠券新人优惠券萨达是大大大是大大飒飒大大手拉手索拉鲁斯劳斯莱斯劳斯莱斯老李说劳斯莱斯",
+    postId: "3",
+    author: "张宸瑜",
     postImg: "/images/post/post1Picture@3x.png",
     avatar: "/images/post/avatar_women.png",
     content: "因商品享受”7天无理由退换“服务，则推广费将在用户收货7天后且未发生退货的情况下发放至您的CEO账户。收入到账后，您可以马上提现，每日限提现5次，上限2,000元。提现过程中产生的费用皆由微信或支付宝平台收取，如有疑问，可联系客服咨询。",
@@ -76,6 +85,9 @@ var postList = [{
     title: "缓存数据--领券中心",
     postImg: "/images/post/post1Picture@3x.png",
     avatar: "/images/post/avatar_women.png",
+    detail: "领券中心领券中心领券中心领券中心领券中心领券中心萨达是大大大是大大飒飒大大手拉手索拉鲁斯劳斯莱斯劳斯莱斯老李说劳斯莱斯",
+    postId: "4",
+    author: "张宸瑜",
     content: "因商品享受”7天无理由退换“服务，则推广费将在用户收货7天后且未发生退货的情况下发放至您的CEO账户。收入到账后，您可以马上提现，每日限提现5次，上限2,000元。提现过程中产生的费用皆由微信或支付宝平台收取，如有疑问，可联系客服咨询。",
     readingNum: {
       array: [8, 17, 106]
