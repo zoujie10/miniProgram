@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/post/post",
     "pages/logs/logs",
     "pages/mine/mine",
+    "pages/index/index",
     "data/data",
     "db/DBPost",
     "pages/post/post-detail/post-detail"
@@ -18,7 +18,7 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/post/post",
         "text": "首页",
         "iconPath": "images/avatar/short_letter@3x.png",
         "selectedIconPath": "images/avatar/yanzhengma@3x.png"

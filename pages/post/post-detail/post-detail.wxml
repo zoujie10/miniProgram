@@ -9,6 +9,6 @@
       <text class="author">{{post.author}}</text>
     </view>
     <text class="date">{{post.object.date}}</text>
-  </view>
+    </view>
   <text class="detail">{{post.detail}}</text>
 </view>

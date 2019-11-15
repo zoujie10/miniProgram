@@ -94,3 +94,18 @@
 <block wx:for="{{templateData}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
   <include src="post-item/post-item-tpl.wxml"/>
 </block>
+
+<view class="tool">
+  <view class="tool-item" catchtap="onUpTap" data-post-id="{{post.postId}}">
+    <image src="/images/collect/intention_null_display"></image>
+    <text>{{post.upNum}}</text>
+  </view>
+  <view class="tool-item" catchtap="onUpTap" data-post-id="{{post.postId}}">
+    <image src="/images/collect/short_letter"></image>
+    <text>{{post.commentNum}}</text>
+  </view>
+  <view class="tool-item" catchtap="onUpTap" data-post-id="{{post.postId}}">
+    <image src="/images/collect/click_noagreey"></image>
+    <text>{{post.collectionNum}}</text>
+  </view>
+</view>
