@@ -1,6 +1,6 @@
 <!--pages/post/post.wxml-->
 <!-- <text>pages/post/post.wxml</text> -->
-<import src="post-item/post-item-tpl.wxml"/>
+<import src="post-item/post-item-tpl.wxml" />
 <!-- 轮播图 -->
 <view>
   <swiper indicator-dots="true" autoplay="true" interval="5000">
@@ -66,46 +66,51 @@
 
 
 <!-- 列表渲染 列表-->
-  <block wx:for="{{postList}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
-    <view class=" textAndPicture-container ">
-      <view class="post-author-date ">
+<block wx:for="{{postList}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
+  <view class=" textAndPicture-container ">
+    <view class="post-author-date ">
       <image src="{{item.avatar}} "></image>
       <text>{{item.object.date}}</text>
-      </view>
-      <text class="home-title ">{{item.title}}</text>
-      <image class="home-middle-pic " src="{{item.postImg}} " mode="aspectFit "></image>
-      <text class="content-text ">{{item.content}}</text>
-      <view class="post-like ">
-        <image src="/images/avatar/short_letter@3x.png "></image>
-        <text>{{item.readingNum.array[1]}}</text>
-        <image src="/images/avatar/yanzhengma@3x.png "></image>
-        <text>{{item.commentNum}}</text>
-      </view>
-     </view>
-  </block>
+    </view>
+    <text class="home-title ">{{item.title}}</text>
+    <image class="home-middle-pic " src="{{item.postImg}} " mode="aspectFit "></image>
+    <text class="content-text ">{{item.content}}</text>
+    <view class="post-like ">
+      <image src="/images/avatar/short_letter@3x.png "></image>
+      <text>{{item.readingNum.array[1]}}</text>
+      <image src="/images/avatar/yanzhengma@3x.png "></image>
+      <text>{{item.commentNum}}</text>
+      <!-- <view class="tool"> -->
+        <view class="tool-item" catchtap="onCollectionTap" data-post-id="{{item.postId}}">
+          <image wx:if="{{item.collectionStatus}}" src="/images/collect/intention_display@3x.png"></image>
+          <image wx:else src = "/images/collect/intention_null_display@3x.png"></image>
+          <text>{{item.collectionNum}}</text>
+        </view>
+        <view class="tool-item" catchtap="onUpTap" data-post-id="{{item.postId}}">
+          <image src="/images/avatar/short_letter@3x.png"></image>
+          <text>{{item.commentNum}}</text>
+        </view>
+        <view class="tool-item" catchtap="onUpTap" data-post-id="{{item.postId}}">
+          <image src="/images/collect/click_noagree@3x.png"></image>
+          <text>{{item.upNum}}</text>
+        </view>
+      <!-- </view> -->
+    </view>
+  </view>
+</block>
 
 <!-- 模板化 -->
 <block wx:for="{{templateData}}" wx:for-index="idx" wx:for-item="itemMessage" wx:key="unique">
   <view catchtap="onTapToDetail" data-post-id="{{itemMessage.postId}}">
-    <template is="picureItem" data="{{...itemMessage}}"/>
+    <template is="picureItem" data="{{...itemMessage}}" />
   </view>
-</block>  
-
-<block wx:for="{{templateData}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
-  <include src="post-item/post-item-tpl.wxml"/>
 </block>
 
-<view class="tool">
-  <view class="tool-item" catchtap="onUpTap" data-post-id="{{post.postId}}">
-    <image src="/images/collect/intention_null_display"></image>
-    <text>{{post.upNum}}</text>
-  </view>
-  <view class="tool-item" catchtap="onUpTap" data-post-id="{{post.postId}}">
-    <image src="/images/collect/short_letter"></image>
-    <text>{{post.commentNum}}</text>
-  </view>
-  <view class="tool-item" catchtap="onUpTap" data-post-id="{{post.postId}}">
-    <image src="/images/collect/click_noagreey"></image>
-    <text>{{post.collectionNum}}</text>
-  </view>
-</view>
+<block wx:for="{{templateData}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
+  <include src="post-item/post-item-tpl.wxml" />
+</block>
+<!-- 多级别判断
+<view wx:if="{{length>5}}"> 1 </view>   大于5 显示1
+<view wx:elif = "{{length>2}}"> 2 </view>    大于2 小于5 显示2
+<view wx:else> 3 </view>   其他显示 3
+-->

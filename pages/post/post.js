@@ -1,6 +1,7 @@
 // pages/post/post.js
 // var DBPost = require("../../db/DBPost.js").DBPost;
 import {DBPost} from '../../db/DBPost.js';
+var dbPost = new DBPost();
 Page({
   /**
    * 页面的初始数据
@@ -124,7 +125,7 @@ Page({
     //   templateData: templateData
     // })
 
-    var dbPost= new DBPost();
+    // var dbPost= new DBPost();
     this.setData({
       postList:dbPost.getAllPostData(),
       templateData: templateData
@@ -170,6 +171,26 @@ Page({
     console.log(postId);
     wx.navigateTo({
       url: 'post-detail/post-detail?postId='+postId,
+    })
+  },
+
+  onCollectionTap(event) {
+    //dbPost对象已在onLoad函数里被保存到了this变量中，无需再次实例化
+    // var dbPost = new DBPost();
+    
+    var newData = dbPost.collectOn();
+    //重新绑定数据。注意，不要将整个newData全部作为setData的参数，
+    //应当有选择地更新部分数据
+    console.log(newData.collectionStatus, newData.collectionNum);
+    this.setData({
+      "postList[0].collectionStatus" : newData.collectionStatus,
+      "postList[0].upNum": newData.collectionNum
+    })
+    wx.showToast({
+      title: newData.collectionStatus ? "收藏成功" : "取消成功",
+      duration: 1000,
+      icon: "success",
+      mask: true
     })
   },
 

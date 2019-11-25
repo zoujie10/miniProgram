@@ -99,6 +99,7 @@ swiper indicator-active-color{
   height:64rpx;
   text-align:center;
   line-height:64rpx;
+  flex-direction: row;
   margin:20rpx 28rpx 20rpx 0;
 }
 
