@@ -6,7 +6,8 @@
     "pages/index/index",
     "data/data",
     "db/DBPost",
-    "pages/post/post-detail/post-detail"
+    "pages/post/post-detail/post-detail",
+    "pages/post/post-comment/post-comment"
   ],
   "window": {
     "backgroundTextStyle": "dark",

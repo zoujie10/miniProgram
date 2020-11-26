@@ -87,10 +87,11 @@
           <text>{{item.collectionNum}}</text>
         </view>
         <view class="tool-item" catchtap="onUpTap" data-post-id="{{item.postId}}">
-          <image src="/images/avatar/short_letter@3x.png"></image>
-          <text>{{item.commentNum}}</text>
+          <image wx:if="{{item.upStatus}}" src="/images/collect/click_noagree@3x.png"></image>
+          <image wx:else src = "/images/collect/click_agree@3x.png"></image>
+          <text>{{item.upNum}}</text>
         </view>
-        <view class="tool-item" catchtap="onUpTap" data-post-id="{{item.postId}}">
+        <view class="tool-item" catchtap="onCommentTap" data-post-id="{{item.postId}}">
           <image src="/images/collect/click_noagree@3x.png"></image>
           <text>{{item.upNum}}</text>
         </view>

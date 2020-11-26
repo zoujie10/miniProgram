@@ -170,7 +170,8 @@ Page({
     var postId = event.currentTarget.dataset.postId;
     console.log(postId);
     wx.navigateTo({
-      url: 'post-detail/post-detail?postId='+postId,
+      // url: 'post-detail/post-detail?postId='+postId,
+      url: 'post-detail/post-detail',
     })
   },
 
@@ -184,7 +185,7 @@ Page({
     console.log(newData.collectionStatus, newData.collectionNum);
     this.setData({
       "postList[0].collectionStatus" : newData.collectionStatus,
-      "postList[0].upNum": newData.collectionNum
+      "postList[0].collectionNum": newData.collectionNum
     })
     wx.showToast({
       title: newData.collectionStatus ? "收藏成功" : "取消成功",
@@ -193,5 +194,31 @@ Page({
       mask: true
     })
   },
+  
+//点赞
+  onUpTap(event){
+    var newData = dbPost.clickUp();
+    this.setData({
+      "postList[0].upStatus": newData.upStatus,
+      "postList[0].upNum" :newData.upNum
+    })
+
+    wx.showToast({
+      title: newData.upStatus ? "点赞成功" : "取消点赞",
+      duration: 1000,
+      icon: "success",
+      mask: true
+    })
+  },
+
+//评论
+onCommentTap(event){
+var id = event.currentTarget.dataset.postId;
+wx.navigateTo({
+  // url: 'post-comment/post-commend?id=' + id,
+  url: 'post-comment/post-comment',
+})
+}
+
 
 })
