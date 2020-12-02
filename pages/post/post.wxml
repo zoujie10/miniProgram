@@ -67,7 +67,7 @@
 
 <!-- 列表渲染 列表-->
 <block wx:for="{{postList}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
-  <view class=" textAndPicture-container ">
+  <view class=" textAndPicture-container " catchtap="onTapToDetail" data-post-id="{{item.postId}}" >
     <view class="post-author-date ">
       <image src="{{item.avatar}} "></image>
       <text>{{item.object.date}}</text>

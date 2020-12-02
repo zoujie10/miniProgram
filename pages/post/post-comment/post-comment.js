@@ -8,12 +8,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    useKeyboardFlag: true,
-    keyboardInputValue: '',
-    sendMoreMsgFlag: false,
-    chooseFiles: [],
-    deleteIndex: -1,
-    currentAudio: ''
+    useKeyboardFlag: true,//控制使用键盘还是发送语音
+    keyboardInputValue: '',//控制input组件的初始值
+    sendMoreMsgFlag: false,//控制显示选择图片面板
+    chooseFiles: [],//已选择的图片数组
+    deleteIndex: -1,//被删除的图片序号
+    currentAudio: ''//保存当前播放语音的URL
   },
 
   /**
@@ -21,7 +21,7 @@ Page({
    */
   onLoad: function (options) {
       // var postId = options.postId;
-      var postId = 0;
+      var postId = 0;//temp data
       this.dbPost = new DBPost(postId);
       var comments = this.dbPost.getCommentData();
     console.log(comments);
@@ -56,6 +56,9 @@ Page({
   // 获取用户输入
   bindCommentInput: function (event) {
       var val = event.detail.value;
+      //打印 输入数据
+      console.log(val);
+      // return val.replace(/qq/g,'*');//替换 文本
       this.data.keyboardInputValue = val;
   },
 
@@ -63,6 +66,7 @@ Page({
   // 提交用户评论
   submitComment: function (event) {
       var imgs = this.data.chooseFiles;
+      //temp data
       var newData = {
           username: "青石",
           avatar: "/images/avatar/avatar-3.png",
@@ -86,6 +90,7 @@ Page({
       this.resetAllDefaultStatus();
   },
 
+  //输出评论后逻辑
   //评论成功
   showCommitSuccessToast: function () {
       //显示操作结果
@@ -133,7 +138,7 @@ Page({
       if (leftCount <= 0) {
           return;
       }
-      var sourceType = [event.currentTarget.dataset.category],
+      var sourceType = [event.currentTarget.dataset.category],//相册或拍照模式
           that = this;
       console.log(leftCount)
       wx.chooseImage({
@@ -160,7 +165,7 @@ Page({
       that.data.chooseFiles.splice(index, 1);
       setTimeout(function () {
           that.setData({
-              deleteIndex: -1,
+              deleteIndex: -1,//删除后 重置数据
               chooseFiles: that.data.chooseFiles
           });
       }, 500)
@@ -202,10 +207,10 @@ Page({
       wx.stopRecord();
   },
 
-  //提交录音 
+  //提交录音 逻辑  和 图片文字评论逻辑 分开  audio
   submitVoiceComment: function (audio) {
       var newData = {
-          username: "青石",
+          username: "青石 录音",
           avatar: "/images/avatar/avatar-3.png",
           create_time: new Date().getTime() / 1000,
           content: {

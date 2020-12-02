@@ -69,6 +69,11 @@ compareWithTime(value1, value2) {
   newComment(newComment) {
   this.updatePostData('comment', newComment);
   }
+
+  //阅读数+1
+  addReadingTimes() {
+    this.updatePostData('reading');
+}
   //更新本地的点在、评论信息、收藏、阅读量
   updatePostData(category,newComment) {
     var itemData = this.getPostItemById(),

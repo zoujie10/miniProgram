@@ -170,8 +170,8 @@ Page({
     var postId = event.currentTarget.dataset.postId;
     console.log(postId);
     wx.navigateTo({
-      // url: 'post-detail/post-detail?postId='+postId,
-      url: 'post-detail/post-detail',
+      url: 'post-detail/post-detail?postId='+postId,
+      // url: 'post-detail/post-detail',
     })
   },
 

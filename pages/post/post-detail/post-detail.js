@@ -1,4 +1,6 @@
 // pages/post/post-detail/post-detail.js
+var app = getApp();
+console.log(app)
 import {
   DBPost
 } from '../../../db/DBPost.js';
@@ -9,7 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isPlayingMusic: false
   },
 
   /**
@@ -23,6 +25,9 @@ Page({
     this.setData({
       post: this.postData
     })
+    this.addReadingTimes();//文章阅读计数
+    this.setMusicMonitor();//监听音乐播放器
+    this.initMusicStatus();
   },
 
   /**
@@ -35,6 +40,22 @@ Page({
     })
   },
 
+  initMusicStatus() {
+    var currentPostId = this.postData.postId;
+    if (app.globalData.g_isPlayingMusic &&
+      app.globalData.g_currentMusicPostId === currentPostId) {
+
+      // 如果全局播放的音乐是当前文章的的音乐，才将图标状态设置为正在播放
+      this.setData({
+        isPlayingMusic: true
+      })
+    }
+    else {
+      this.setData({
+        isPlayingMusic: false
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -53,7 +74,14 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
-
+    //音乐播放器 退出停止
+    // wx.stopBackgroundAudio({
+    //   success: (res) => {
+    //     this.setData({
+    //       isPlayingMusic : false
+    //     })
+    //   },
+    // })
   },
 
   /**
@@ -73,7 +101,82 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  // onShareAppMessage: function() {
 
+  // },
+
+  //阅读量+1
+  addReadingTimes:function(){
+    this.dbPost.addReadingTimes();
+  },
+
+  onMusicTap: function (event) {
+    if (this.data.isPlayingMusic) {
+      wx.pauseBackgroundAudio({
+        complete: function () {
+          console.log('complete')
+      },
+      success: function () {
+          console.log('success')
+      },
+      fail: function () {
+          console.log('fail')
+      }
+      });
+      this.setData({
+        isPlayingMusic: false
+      })
+      app.globalData.g_isPlayingMusic = false;
+    }
+    else {
+      wx.playBackgroundAudio({
+        dataUrl: this.postData.music.url,
+        title: this.postData.music.title,
+        coverImgUrl: this.postData.music.coverImg
+      })
+      this.setData({
+        isPlayingMusic: true
+      })
+      app.globalData.g_isPlayingMusic = true;
+      app.globalData.g_currentMusicPostId = this.postData.postId;
+    }
+  },
+
+  setMusicMonitor: function () {
+    var that = this;
+    wx.onBackgroundAudioStop(function () {
+      that.setData({
+        isPlayingMusic: false
+      })
+      app.globalData.g_isPlayingMusic = false;
+    });
+
+    wx.onBackgroundAudioPlay(function (event) {
+      // 只处理当前页面的音乐播放。
+      if (app.globalData.g_currentMusicPostId === that.postData.postId) {
+        that.setData({
+          isPlayingMusic: true
+        })
+      }
+      app.globalData.g_isPlayingMusic = true;
+    });
+
+    wx.onBackgroundAudioPause(function () {
+      // 只处理当前页面的音乐暂停。
+      if (app.globalData.g_currentMusicPostId == that.postData.postId) {
+        that.setData({
+          isPlayingMusic: false
+        })
+      }
+      app.globalData.g_isPlayingMusic = false;
+    });
+  },
+
+  onShareAppMessage: function () {
+    return {
+      title: this.postData.title,
+      desc: this.postData.content,
+      path: "/pages/post/post-detail/post-detail"
+    }
   }
 })

@@ -70,7 +70,7 @@
       <view class="send-more-result-main" hidden="{{chooseFiles.length==0}}">
         <block wx:for="{{chooseFiles}}" wx:for-index="idx">
 
-          <!--如果删除其中一个，则对其添加deleting 样式；-->
+          <!--如果删除其中一个，则对其添加deleting 样式；动画效果-->
           <view class="file-box {{deleteIndex==idx?'deleting':''}}">
             <view class="img-box">
               <image src="{{item}}" mode="aspectFill"></image>
@@ -79,6 +79,7 @@
           </view>
         </block>
       </view>
+
     </view>
   </view>
 </view>

@@ -15,7 +15,7 @@
   bottom: 100rpx;
   right: 0;
   overflow-y: auto;
-  -webkit-overflow-scrolling:touch;
+  -webkit-overflow-scrolling:touch;/*处理真机页面滑动卡顿*/
 }
 
 .comment-item {

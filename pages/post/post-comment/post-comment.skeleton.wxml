@@ -1,0 +1,92 @@
+<!--
+此文件为开发者工具生成，生成时间: 2020/11/26 下午4:16:43 
+使用方法：
+在 /Users/00381342/miniProgram/miniProgram/pages/post/post-comment/post-comment.wxml 引入模板
+
+```
+<import src="post-comment.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 /Users/00381342/miniProgram/miniProgram/pages/post/post-comment/post-comment.wxss 中引入样式
+```
+@import "./post-comment.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="comment-detail-box">
+      <view class="comment-main-box">
+        <view class="comment-title sk-transparent sk-text-26-6667-776 sk-text" style="border: none;">评论………（共6条）</view>
+        <view class="comment-item" style="border: none;">
+          <view class="comment-item-header">
+            <view class="left-img">
+              <image class="sk-image"></image>
+            </view>
+            <view class="right-user">
+              <text class="user-name sk-transparent sk-text-33-7500-678 sk-text">青石</text>
+            </view>
+          </view>
+          <view class="comment-body">
+            <view class="comment-txt">
+              <text class="sk-transparent sk-text-24-0000-140 sk-text">one piece!</text>
+            </view>
+            <view class="comment-img">
+              <image data-comment-idx="0" data-img-idx="0" mode="aspectFill" class="sk-image"></image>
+            </view>
+          </view>
+          <view class="comment-time sk-transparent sk-text-14-2857-284 sk-text">刚刚</view>
+        </view>
+        <view class="comment-item" style="border: none;">
+          <view class="comment-item-header">
+            <view class="left-img">
+              <image class="sk-image"></image>
+            </view>
+            <view class="right-user">
+              <text class="user-name sk-transparent sk-text-33-7500-847 sk-text">青石</text>
+            </view>
+          </view>
+          <view class="comment-body">
+            <view class="comment-txt">
+              <text class="sk-transparent sk-text-24-0000-69 sk-text">12331</text>
+            </view>
+          </view>
+          <view class="comment-time sk-transparent sk-text-14-2857-799 sk-text">12分钟前</view>
+        </view>
+        <view class="comment-item" style="border: none;">
+          <view class="comment-item-header">
+            <view class="left-img">
+              <image class="sk-image"></image>
+            </view>
+            <view class="right-user">
+              <text class="user-name sk-transparent sk-text-33-7500-392 sk-text">青石</text>
+            </view>
+          </view>
+          <view class="comment-body">
+            <view class="comment-txt">
+              <text class="sk-transparent sk-text-24-0000-525 sk-text"> 那一年的毕业季，我们挥挥手，来不及说再见，就踏上了远行的火车。</text>
+            </view>
+            <view class="comment-img">
+              <image data-comment-idx="2" data-img-idx="0" mode="aspectFill" class="sk-image"></image>
+              <image data-comment-idx="2" data-img-idx="1" mode="aspectFill" class="sk-image"></image>
+              <image data-comment-idx="2" data-img-idx="2" mode="aspectFill" class="sk-image"></image>
+            </view>
+          </view>
+          <view class="comment-time sk-transparent sk-text-14-2857-430 sk-text">2017-01-18 15:09</view>
+        </view>
+      </view>
+      <view class="input-box" style="border: none;">
+        <view class="send-msg-box">
+          <view class="input-item">
+            <image class="comment-icon speak-icon sk-image"></image>
+            <view bindinput="bindCommentInput" class="input keyboard-input sk-image" placeholder="说点什么吧……" value="true" selection-start="-1" selection-end="-1" cursor="-1" style="border: none;"></view>
+          </view>
+          <image class="comment-icon add-icon sk-image"></image>
+          <view class="submit-btn sk-transparent sk-text-30-0000-572 sk-text" style="background-position-x: 50%;">发送</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
