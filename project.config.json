@@ -11,10 +11,11 @@
     "newFeature": true,
     "coverView": true,
     "autoAudits": false,
+    "scopeDataCheck": false,
     "checkInvalidKey": true,
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
-    "useMultiFrameRuntime": false,
+    "useMultiFrameRuntime": true,
     "useApiHook": true,
     "babelSetting": {
       "ignore": [],
@@ -29,7 +30,7 @@
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "scopeDataCheck": false
+    "useApiHostProcess": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.8.0",

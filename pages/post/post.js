@@ -175,6 +175,16 @@ Page({
     })
   },
 
+ // target 和currentTarget
+  // target指的是当前点击的组件 和currentTarget 指的是事件捕获的组件
+  // target这里指的是image，而currentTarget指的是swiper
+  onSwiperTap: function (event) {
+    var postId = event.target.dataset.postId;
+    wx.navigateTo({
+      url: "post-detail/post-detail?postId=" + postId
+    })
+  },
+
   onCollectionTap(event) {
     //dbPost对象已在onLoad函数里被保存到了this变量中，无需再次实例化
     // var dbPost = new DBPost();

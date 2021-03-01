@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  /* 均匀排列每个元素 首个元素放置于起点，末尾元素放置于终点 */
+  /* justify-content: space-between; */
   /* padding: 200rpx 0; */
   box-sizing: border-box;
 } 

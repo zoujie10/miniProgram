@@ -28,6 +28,7 @@ Page({
     this.addReadingTimes();//文章阅读计数
     this.setMusicMonitor();//监听音乐播放器
     this.initMusicStatus();
+    this.setAniation();
   },
 
   /**
@@ -40,6 +41,16 @@ Page({
     })
   },
 
+  setAniation: function () {
+    //定义动画  创建动画实例
+    var animationUp = wx.createAnimation({
+      //动画的效果
+      timingFunction: 'ease-in-out'
+      //“linear”“ease”“ease-in”“ease-in-out”“ease-out”“step-start”“step-end”
+    })
+
+    this.animationUp = animationUp
+  },
   initMusicStatus() {
     var currentPostId = this.postData.postId;
     if (app.globalData.g_isPlayingMusic &&
@@ -104,6 +115,27 @@ Page({
   // onShareAppMessage: function() {
 
   // },
+
+  onUpTap: function (event) {
+    var newData = this.dbPost.up();
+
+    this.setData({
+      'post.upStatus': newData.upStatus,
+      'post.upNum': newData.upNum
+    }),
+
+    this.animationUp.scale(2).step();
+    this.setData({
+      animationUp: this.animationUp.export()
+    })
+    setTimeout(function () {
+      this.animationUp.scale(1).step();
+      this.setData({
+        animationUp: this.animationUp.export()
+      })
+    }.bind(this), 300);
+  },
+
 
   //阅读量+1
   addReadingTimes:function(){
@@ -172,6 +204,7 @@ Page({
     });
   },
 
+//注意，分享按钮是页面的行为，而不是应用程序的行为，每个页面都可以调用分享API并设置自己的分享参数。
   onShareAppMessage: function () {
     return {
       title: this.postData.title,

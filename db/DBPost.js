@@ -64,6 +64,11 @@ compareWithTime(value1, value2) {
   collectOn(){
     return this.updatePostData("collect");
   }
+//点赞
+up() {
+  var data = this.updatePostData('up');
+  return data;
+}
 
 /*发表评论*/
   newComment(newComment) {
