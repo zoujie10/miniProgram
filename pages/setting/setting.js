@@ -239,6 +239,20 @@ playShakeAudio: function () {
     });
   });
 },
+
+  //扫描二维码
+  scanQRCode: function () {
+    var that = this;
+    wx.scanCode({
+      success: function (res) {
+        console.log(res)
+        that.showModal('扫描二维码', res.result, false);
+      },
+      fail: function (res) {
+        that.showModal('扫描二维码', "扫描失败，请重试", false);
+      }
+    })
+  },
  //下载并预览文档
  downloadDocumentList: function () {
   wx.navigateTo({
@@ -246,7 +260,54 @@ playShakeAudio: function () {
   });
 },
 
-/******* 开放API *****************************************/
+ /*****************开放api示例代码***********************
+   * 以下是开放api的示例代码，为避免本文件代码过多，首先将跳转到子页面
+   */
+  login: function () {
+    wx.navigateTo({
+      url: '/pages/setting/open-api/login/login'
+    });
+  },
+
+  check: function () {
+    wx.navigateTo({
+      url: '/pages/setting/open-api/check/check'
+    });
+  },
+
+  decrypted: function () {
+    wx.navigateTo({
+      url: '/pages/setting/open-api/decrypted/decrypted'
+    });
+  },
+
+  tplMessage: function () {
+    wx.navigateTo({
+      url: '/pages/setting/open-api/tpl-message/tpl-message'
+    });
+  },
+
+  wxPay: function () {
+    wx.navigateTo({
+      url: '/pages/setting/open-api/wx-pay/wx-pay'
+    });
+  },
+  
+  showWxKeyDemo: function () {
+    wx.navigateTo({
+      url: '/pages/setting/others/wx-key/wx-key'
+    });
+  },
+
+  showScrollViewDemo: function () {
+    wx.navigateTo({
+      url: '/pages/setting/others/scroll-view/scroll-view'
+    });
+  },
+
+   /************  END ***********/
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

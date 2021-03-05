@@ -9,7 +9,7 @@ Page({
   },
   downloadFile: function (event) {
     var type = event.currentTarget.dataset.type,
-      url = 'https://coding.net/u/airbreak/p/wx_app_files/git/raw/master/top10.';
+      url = 'https://coding.net/u/airbreak/p/wx_app_files/git/raw/master/top10.';//失效 pdf html
     switch (type) {
       case "pdf":
         url += 'pdf';
