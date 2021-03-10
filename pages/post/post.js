@@ -7,19 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // object:{
-    //     date: "August 09 2019"
-    // },
-    // title:"旺仔旺铺首页",
-    // postImg:"/images/post/bannarPicture.png",
-    // avatar:"/images/post/avatar_women.png",
-    // content: "虚弱的窗帘留不住,房里的黑夜也要走,清晨唤醒了我,照亮昨夜的梦,一直到这时候,你的爱就像彩                 虹雨后的天空绚烂却教人迷惑蓝绿黄红你的爱就像彩虹我张开了手却只能抱诅。",
-    // readingNum:{
-    //   array:[108,107,106]
-    // },
-    // collectionNum:108,
-    // commentNum:7
-    
+    products :[]
   },
 
   /**
@@ -42,95 +30,60 @@ Page({
   onShow: function() {
     console.log("onShow:页面被显示")
     this.doSomeThing()
+    this.processDoubanData()
   },
   doSomeThing: function() {
-    // var wantwantData = {
-    //   object: {
-    //     date: "August 09 2019"
-    //   },
-    //   title: "旺仔旺铺首页",
-    //   postImg: "/images/post/bannarPicture.png",
-    //   avatar: "/images/post/avatar_women.png",
-    //   content: "虚弱的窗帘留不住,房里的黑夜也要走,清晨唤醒了我,照亮昨夜的梦,一直到这时候,你的爱就像彩                 虹雨后的天空绚烂却教人迷惑蓝绿黄红你的爱就像彩虹我张开了手却只能抱诅。",
-    //   readingNum: {
-    //     array: [108, 107, 106]
-    //   },
-    //   collectionNum: 108,
-    //   commentNum: 7
-    // }
-    // this.setData({
-    //   // title : "旺仔牛奶",
-    //   // "readingNum.array[1]": 99,
-    //   // "object.date":"August 10 2019"
-    //   postData: wantwantData
-    // })
     var templateData = [{
-      message: 'Picture1',
+      message: 'Picture--1',
       postId:"1",
     }, {
-      message: 'Picture2',
+      message: 'Picture--2',
       postId: "2",
-    }, {
-      message: 'Picture3',
-      postId: "3",
     }]
-
-    // var postList = [{
-    //   object: {
-    //     date: "August 09 2019"
-    //   },
-    //   title: "旺仔旺铺首页",
-    //   postImg: "/images/post/bannarPicture.png",
-    //   avatar: "/images/post/avatar_women.png",
-    //   content: "虚弱的窗帘留不住,房里的黑夜也要走,清晨唤醒了我,照亮昨夜的梦,一直到这时候,你的爱就像彩                 虹雨后的天空绚烂却教人迷惑蓝绿黄红你的爱就像彩虹我张开了手却只能抱诅。",
-    //   readingNum: {
-    //     array: [108, 107, 106]
-    //   },
-    //   collectionNum: 108,
-    //   commentNum: 7
-    // },
-    
-    //   {
-    //     object: {
-    //       date: "August 10 2019"
-    //     },
-    //     title: "旺仔旺铺新品",
-    //     postImg: "/images/post/postPicture@3x.png",
-    //     avatar: "/images/avatar/WeChat@3x.png",
-    //     content: "因商品享受”7天无理由退换“服务，则推广费将在用户收货7天后且未发生退货的情况下发放至您的CEO账户。收入到账后，您可以马上提现，每日限提现5次，上限2,000元。提现过程中产生的费用皆由微信或支付宝平台收取，如有疑问，可联系客服咨询。",
-    //     readingNum: {
-    //       array: [10, 10, 106]
-    //     },
-    //     collectionNum: 108,
-    //     commentNum: 9
-    //   },
-
-    //   {
-    //     object: {
-    //       date: "August 11 2019"
-    //     },
-    //     title: "旺仔旺铺严选",
-    //     postImg: "/images/post/post1Picture@3x.png",
-    //     avatar: "/images/post/avatar_women.png",
-    //     content: "因商品享受”7天无理由退换“服务，则推广费将在用户收货7天后且未发生退货的情况下发放至您的CEO账户。收入到账后，您可以马上提现，每日限提现5次，上限2,000元。提现过程中产生的费用皆由微信或支付宝平台收取，如有疑问，可联系客服咨询。",
-    //     readingNum: {
-    //       array: [8, 17, 106]
-    //     },
-    //     collectionNum: 108,
-    //     commentNum: 11
-    //   },
-    // ]
-    // this.setData({
-    //   postList: postList,
-    //   templateData: templateData
-    // })
-
-    // var dbPost= new DBPost();
     this.setData({
       postList:dbPost.getAllPostData(),
       templateData: templateData
     })
   },
+
+  processDoubanData: function (moviesDouban) {
+    var products = [];
+    for (var idx = 0;idx < 10;idx++) {
+      var subject = idx;
+      var title = "Product";
+      var coverStr;
+      if(idx == 0){
+          coverStr = "/images/avatar/avatar-1.png"; 
+      }else if(idx==1){
+        coverStr = "/images/avatar/avatar-2.png"; 
+      }else if (idx == 2){
+        coverStr = "/images/avatar/avatar-3.png"; 
+      }else{
+        coverStr = "/images/avatar/avatar-4.png";
+      }
+      if (title.length >= 6) {
+        title = title.substring(0, 6) + "...";
+      }
+      var temp = {
+        // stars: util.convertToStarsArray(subject.rating.stars),
+        title: title+idx,
+        // average: subject.rating.average,
+        coverageUrl: coverStr,
+        movieId: idx
+      }
+      products.push(temp)
+    }
+
+    var totalMovies = []
+    totalMovies = this.data.products.concat(products);
+    this.setData({
+      products: totalMovies
+    });
+    wx.stopPullDownRefresh();
+    //隐藏loading状态
+    wx.hideNavigationBarLoading();
+  },
+
   /**
    * 生命周期函数--监听页面隐藏 
    */
@@ -228,7 +181,15 @@ wx.navigateTo({
   // url: 'post-comment/post-commend?id=' + id,
   url: 'post-comment/post-comment',
 })
-}
+},
 
+onPullDownRefresh: function (event) {
+  
+  //刷新页面后将页面所有初始化参数恢复到初始值
+  this.data.movies = [];
+   this.processDoubanData()
+  //显示loading状态
+  wx.showNavigationBarLoading();
+}
 
 })
